@@ -1,0 +1,21 @@
+J. Cole GPT
+This repository contains code to fine-tune the GPT-NEOX-20B model on a text file containing J. Cole's lyrics. The text file is preprocessed to create a prompt and completion for each verse.
+
+Requirements
+Python 3.6 or higher
+The Hugging Face transformers library
+Usage
+To use the code, clone the repository and install the required libraries:
+
+//
+git clone https://github.com/your-username/j-cole-gpt.git
+pip install transformers
+Set the path to the lyrics file in the lyrics_path variable. Then run the code:
+
+//
+python main.py
+The fine-tuned model will be saved to the model directory.
+
+Credits
+The GPT-NEOX-20B model was trained by EleutherAI.
+The lyrics text file was obtained from Kaggle.
