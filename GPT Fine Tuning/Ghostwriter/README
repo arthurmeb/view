@@ -1,28 +1,19 @@
 J. Cole GPT
-This repository contains code to fine-tune the GPT-NEOX-20B model on a text file containing J. Cole's lyrics. The text file is preprocessed to create a prompt and completion for each verse.
+This repository contains code to fine-tune the OpenAI "curie" on a text file containing J. Cole's lyrics. The text file is preprocessed to create a prompt and completion for each verse.
 
 Please excuse the high levels of profanity in the lyrics. The sample data was chosen as it is relatively straight-forward to train and as such is a great introduction for a learner like myself to GPT fine tuning.
 
-This project is a work in progress and later versions will be trained on more sophisticated GPT models such as OpenAI's "text-curie-001" and "text-davinci-003". 
+This project is a work in progress and later versions will be trained on more sophisticated GPT models such as OpenAI's "text-davinci-003". 
 The end goal is to have a sophisticated model which can generate unique and impressive rap verses based on a roster of high-profile rappers including but not limited to:
 J. Cole, Drake, Immortal Technique, Kendrick Lamar, Tyler The Creator, Andre 3000, Eminem.
 Future iterations will additionally be trained to generate completions based on prompts such as "story-telling" (think Stan by Eminem) or "clever wordplay" or cadence or rhyme schemes etc etc...
 
 Requirements
 Python 3.6 or higher
-The Hugging Face transformers library
-Usage
-To use the code, clone the repository and install the required libraries:
-
-//
-git clone https://github.com/your-username/j-cole-gpt.git
-pip install transformers
-Set the path to the lyrics file in the lyrics_path variable. Then run the code:
-
-//
-python main.py
-The fine-tuned model will be saved to the model directory.
+openai==1.0.0
+pandas==1.2.3
+You need to install these packages before running the code.
 
 Credits
-The GPT-NEOX-20B model was trained by EleutherAI.
+OpenAI
 The lyrics text file was obtained from Kaggle.
