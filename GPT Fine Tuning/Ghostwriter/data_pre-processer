@@ -1,0 +1,61 @@
+import openai
+import csv
+import os
+import json
+import pandas as pd
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Set the path to the lyrics text file
+lyrics_path = "PATH-TO-LYRIC-FILE"
+
+# Read in the lines of the lyrics text file
+with open(lyrics_path, "r") as f:
+    lines = f.readlines()
+
+# Remove leading and trailing whitespace from each line
+lines = [line.strip() for line in lines]
+
+# Split the lines into verses based on empty lines
+verses = []
+verse = []
+for line in lines:
+    if line:
+        verse.append(line)
+    else:
+        # Only append the verse if it is not empty
+        if verse:
+            verses.append(verse)
+        verse = []
+# Add the last verse if it is not empty
+if verse:
+    verses.append(verse)
+
+lyric_data = list()
+# Open a new CSV file
+doc_count = 0
+lyricfile = "lyrics-csv%s.csv" % doc_count
+with open(lyricfile,"w", newline="") as csvfile:
+    # Create a CSV writer object
+    writer = csv.writer(csvfile)
+    # Iterate through the verses
+    for verse in verses:
+        # Take first line of verse as prompt and append string to start
+        prompt = "Write a rap verse based on the following line: " + verse[0] + "\n\n###\n\n"
+        # Concatenate the rest of the lines as the completion
+        completion = "\n".join(verse[1:]) + "###"
+        # Write the prompt and completion to the CSV file
+        writer.writerow([prompt, completion])
+        doc_count += 1
+        # add the data to list
+        lyric_data.append({'prompt': prompt, 'completion': completion})
+        
+# save dataframe as csv
+df = pd.read_csv(lyricfile)
+df.to_csv(lyricfile, index=False)
+
+# Write the data to json file
+with open('lyrics-json%s.jsonl' % doc_count, 'w') as outfile:
+    for i in lyric_data:
+        json.dump(i, outfile)
+        outfile.write('\n')
