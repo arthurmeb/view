@@ -1,9 +1,8 @@
-J. Cole GPT
-This repository contains code to fine-tune the OpenAI "curie" on a text file containing J. Cole's lyrics. The text file is preprocessed to create a prompt and completion for each verse.
+rapGPT
+This repository contains code to fine-tune the OpenAI "text-davinci-003" on a file containing lyrics from Immortal Technique, Joey Badass, Eminem and J Cole. The file is preprocessed to create a prompt and completion for each verse.
 
 Please excuse the high levels of profanity in the lyrics. The sample data was chosen as it is relatively straight-forward to train and as such is a great introduction for a learner like myself to GPT fine tuning.
-
-This project is a work in progress and later versions will be trained on more sophisticated GPT models such as OpenAI's "text-davinci-003". 
+ 
 The end goal is to have a sophisticated model which can generate unique and impressive rap verses based on a roster of high-profile rappers including but not limited to:
 J. Cole, Drake, Immortal Technique, Kendrick Lamar, Tyler The Creator, Andre 3000, Eminem.
 Future iterations will additionally be trained to generate completions based on prompts such as "story-telling" (think Stan by Eminem) or "clever wordplay" or cadence or rhyme schemes etc etc...
