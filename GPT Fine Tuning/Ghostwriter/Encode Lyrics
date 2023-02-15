@@ -1,0 +1,7 @@
+import ftfy
+file = 'alljson_prepared.jsonl'
+with open(file, 'r', encoding='utf-8') as f_in, open('ALLJSONFIXED.jsonl', 'w', encoding='utf-8') as f_out:
+        text = f_in.read()
+        fixed_text = ftfy.fix_text(text)
+        # file that will be iterated on
+        f_out.write(fixed_text)
